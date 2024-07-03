@@ -1,20 +1,17 @@
-const readline_= require('readline');
+const prompt =require('prompt-sync')()
 
-const rl = readline_.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 const limit = 70;
-rl.question(`vehicle speed:`, function(speed){ 
+let vehicle_speed = Number(prompt('Enter Vehicle Speed'))
+function speed_(speed){ 
     if(isNaN(speed) || speed <= 0){
         console.log(`invalid`);
-        rl.close()
     } else {
         let demeritPoints = (speed - limit)/5;
-        if(demerit > 12) {
+        if(demeritPoints > 12) {
             console.log('License Suspended')
         } else {
             console.log(`Your Points: ${demeritPoints}` );
+        }
     }
-rl.close();
-    }})
+}
+speed_(vehicle_speed)
